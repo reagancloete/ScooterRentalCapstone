@@ -19,7 +19,7 @@ public class MaintenanceIssue {
     private String issueDescription;
     private boolean resolved;
 
-    public MaintenanceIssue() {
+    protected MaintenanceIssue() {
     }
 
     public MaintenanceIssue(Builder builder) {

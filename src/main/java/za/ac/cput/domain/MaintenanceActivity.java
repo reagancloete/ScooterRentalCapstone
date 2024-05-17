@@ -6,6 +6,8 @@ package za.ac.cput.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 import java.util.Objects;
 
@@ -17,8 +19,13 @@ public class MaintenanceActivity {
     private String maintenanceDate;
     private String maintenanceDescription;
 
-    public MaintenanceActivity() {
+    protected MaintenanceActivity() {
     }
+
+    @ManyToOne
+    @JoinColumn(name = "scooterType_id")
+    private ScooterType scooterType;
+
 
     public MaintenanceActivity(Builder builder){
         this.activityID = builder.activityID;
