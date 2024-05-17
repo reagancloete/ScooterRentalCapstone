@@ -10,11 +10,12 @@ Date :  17 May 2024
  */
 import jakarta.persistence.Id;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
-public class Booking {
+public class Booking implements Serializable {
     @Id
     private Long bookingId;
     private LocalDateTime bookingDate;
