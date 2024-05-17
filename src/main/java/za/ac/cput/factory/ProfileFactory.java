@@ -6,10 +6,11 @@ import za.ac.cput.util.Helper;
 
 public class ProfileFactory {
 
-    public static Profile createProfile(String profileId, String name, String phoneNumber, String licenseNumber, String dateOfBirth, String address, Customer customer) {
-        if (Helper.isNullOrEmpty(profileId) || Helper.isNullOrEmpty(name) ||
-                Helper.isNullOrEmpty(phoneNumber) || Helper.isNullOrEmpty(licenseNumber) ||
-                Helper.isNullOrEmpty(dateOfBirth) || Helper.isNullOrEmpty(address) || customer == null) {
+    public static Profile createProfile(String profileId, String firstName, String lastName, String phoneNumber, String emailAddress, String address, String role) {
+        if (Helper.isNullOrEmpty(profileId) || Helper.isNullOrEmpty(firstName) ||
+                Helper.isNullOrEmpty(lastName) || Helper.isNullOrEmpty(phoneNumber) ||
+                Helper.isNullOrEmpty(emailAddress) || Helper.isNullOrEmpty(address) ||
+                Helper.isNullOrEmpty(role)) {
             throw new IllegalArgumentException("All fields are required and cannot be null or empty.");
         }
 
@@ -19,19 +20,19 @@ public class ProfileFactory {
 
         return new Profile.Builder()
                 .setProfileId(profileId)
-                .setName(name)
+                .setFirstName(firstName)
+                .setLastName(lastName)
                 .setPhoneNumber(phoneNumber)
-                .setLicenseNumber(licenseNumber)
-                .setDateOfBirth(dateOfBirth)
+                .setEmailAddress(emailAddress)
                 .setAddress(address)
-                .setCustomer(customer)
+                .setRole(role)
                 .build();
     }
 
-    public static Profile createProfile(String name, String phoneNumber, String licenseNumber, String dateOfBirth, String address, Customer customer) {
-        if (Helper.isNullOrEmpty(name) || Helper.isNullOrEmpty(phoneNumber) ||
-                Helper.isNullOrEmpty(licenseNumber) || Helper.isNullOrEmpty(dateOfBirth) ||
-                Helper.isNullOrEmpty(address) || customer == null) {
+    public static Profile createProfile(String firstName, String lastName, String phoneNumber, String emailAddress, String address, String role) {
+        if (Helper.isNullOrEmpty(firstName) || Helper.isNullOrEmpty(lastName) ||
+                Helper.isNullOrEmpty(phoneNumber) || Helper.isNullOrEmpty(emailAddress) ||
+                Helper.isNullOrEmpty(address) || Helper.isNullOrEmpty(role)) {
             throw new IllegalArgumentException("All fields are required and cannot be null or empty.");
         }
 
@@ -42,12 +43,12 @@ public class ProfileFactory {
         String profileId = Helper.generateId();
         return new Profile.Builder()
                 .setProfileId(profileId)
-                .setName(name)
+                .setFirstName(firstName)
+                .setLastName(lastName)
                 .setPhoneNumber(phoneNumber)
-                .setLicenseNumber(licenseNumber)
-                .setDateOfBirth(dateOfBirth)
+                .setEmailAddress(emailAddress)
                 .setAddress(address)
-                .setCustomer(customer)
+                .setRole(role)
                 .build();
     }
 }
