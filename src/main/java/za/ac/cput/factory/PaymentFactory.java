@@ -1,8 +1,8 @@
 package za.ac.cput.factory;
 
+import za.ac.cput.domain.Payment;
 import za.ac.cput.domain.PaymentInfo;
 import za.ac.cput.util.Helper;
-
 
 import java.util.Date;
 
