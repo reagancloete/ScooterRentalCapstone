@@ -4,7 +4,7 @@ import za.ac.cput.domain.Employee;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
-//Reagan Cloete
+//Reagan
 class EmployeeFactoryTest {
     @Test
     void testBuildEmployee(){
