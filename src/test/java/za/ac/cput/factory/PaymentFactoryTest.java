@@ -1,5 +1,5 @@
 package za.ac.cput.factory;
-//Luyolo Skoma
+//Luyolo Skoma /
 import org.junit.jupiter.api.Test;
 import za.ac.cput.domain.Payment;
 import za.ac.cput.domain.PaymentInfo;
