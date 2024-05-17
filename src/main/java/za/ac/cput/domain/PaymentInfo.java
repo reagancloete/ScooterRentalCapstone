@@ -4,7 +4,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
 import java.io.Serializable;
-import java.util.Objects;
 
 @Entity
 public class PaymentInfo implements Serializable {
@@ -15,9 +14,9 @@ public class PaymentInfo implements Serializable {
     private String rentalDescription;
     private String scooterId;
 
+    protected PaymentInfo() {
+    }
 
-
-    // Private constructor for the builder
     private PaymentInfo(Builder builder) {
         this.paymentInfoId = builder.paymentInfoId;
         this.rentalDuration = builder.rentalDuration;
@@ -26,11 +25,6 @@ public class PaymentInfo implements Serializable {
         this.scooterId = builder.scooterId;
     }
 
-    // Protected no-arg constructor for JPA
-    protected PaymentInfo() {
-    }
-
-    // Getters
     public String getPaymentInfoId() {
         return paymentInfoId;
     }
@@ -56,12 +50,12 @@ public class PaymentInfo implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         PaymentInfo that = (PaymentInfo) o;
-        return Objects.equals(paymentInfoId, that.paymentInfoId) && Objects.equals(rentalDuration, that.rentalDuration) && Objects.equals(insuranceFee, that.insuranceFee) && Objects.equals(rentalDescription, that.rentalDescription) && Objects.equals(scooterId, that.scooterId);
+        return paymentInfoId.equals(that.paymentInfoId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(paymentInfoId, rentalDuration, insuranceFee, rentalDescription, scooterId);
+        return paymentInfoId.hashCode();
     }
 
     @Override
@@ -75,7 +69,6 @@ public class PaymentInfo implements Serializable {
                 '}';
     }
 
-    // Builder Class
     public static class Builder {
         private String paymentInfoId;
         private String rentalDuration;
@@ -108,9 +101,17 @@ public class PaymentInfo implements Serializable {
             return this;
         }
 
+        public Builder copy(PaymentInfo paymentInfo) {
+            this.paymentInfoId = paymentInfo.paymentInfoId;
+            this.rentalDuration = paymentInfo.rentalDuration;
+            this.insuranceFee = paymentInfo.insuranceFee;
+            this.rentalDescription = paymentInfo.rentalDescription;
+            this.scooterId = paymentInfo.scooterId;
+            return this;
+        }
+
         public PaymentInfo build() {
             return new PaymentInfo(this);
         }
     }
-
 }
