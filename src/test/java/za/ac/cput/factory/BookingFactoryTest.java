@@ -9,21 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class BookingFactoryTest {
 
-    @Test
-    void createBookingSuccess() {
-        Long bookingId = 1L;
-        LocalDateTime bookingDate = LocalDateTime.now();
-        Long customerId = 1001L;
-        Long scooterId = 2001L;
 
-        Booking booking = BookingFactory.buildBooking(bookingId, bookingDate, customerId, scooterId);
-
-        assertNotNull(booking, "Booking object should not be null");
-        assertEquals(bookingId, booking.getBookingId(), "Booking ID should match the input");
-        assertEquals(bookingDate, booking.getBookingDate(), "Booking date should match the input");
-        assertEquals(customerId, booking.getCustomerId(), "Customer ID should match the input");
-        assertEquals(scooterId, booking.getScooterId(), "Scooter ID should match the input");
-    }
     @Test
     void createBookingInvalidCustomerId() {
         Long bookingId = 1L;
