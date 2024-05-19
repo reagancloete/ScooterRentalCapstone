@@ -21,7 +21,7 @@ public class Admin {
     private String job_description;
 
     @OneToOne
-    @JoinColumn(name = "bookingID") // Assuming this is the name of the foreign key column in Booking table
+    @JoinColumn(name = "bookingID")
     private Booking booking;
 
     public Admin() {}
